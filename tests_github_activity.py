@@ -1,5 +1,7 @@
 
 from github_activity import get_user_data
+from datetime import datetime
+import requests
 
 print("\n=======\nTEST ONE\n=======")
 get_user_data("pokeuhdaht")
