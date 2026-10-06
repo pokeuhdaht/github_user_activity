@@ -19,5 +19,11 @@ def get_user_data(name:str) -> None:
        
 if __name__ == "__main__":
     
-    get_user_data("pokeuhdaht")
-    get_user_data("feff39f")
+    if len(sys.argv) < 2:
+        print(f"Error: Missing argument.")
+        print(f"Usage: python github_activity.py <username>")
+        sys.exit(1)
+
+    username = sys.argv[1]
+
+    get_user_data(username)
