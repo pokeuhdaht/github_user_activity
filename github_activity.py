@@ -1,29 +1,23 @@
 import sys
-
 import requests
-
+from datetime import datetime
 
 def get_user_data(name:str) -> None:
-
-    try:
+    print(f"\nGetting GITHUB User Data for {name}")
+    print(f"-----------------------------------")
+    response = requests.get(f"https://api.github.com/users/{name}/events",timeout=5)
+    if response.status_code != 200:
+        print(f"An HTTP error occured: {response.status_code}")
+        return
+    else:
         response = requests.get(f"https://api.github.com/users/{name}/events",timeout=5)      
-
-
-    except requests.exceptions.Timeout:
-        print("The request timed out.")
-    except requests.exceptions.HTTPError as err:
-        print(f"HTTP error occured: {response.status_code}")
-    finally:
         data = response.json()
-
         for event in data:
-            if event["type"] == "PushEvent":
-                print(f"{name} pushed to {event['repo']['name']}")
-        #print(data)
-    
+            if event['type'] == "PushEvent":
+                print(f"{name} pushed to {event['repo']['name']} at {datetime.fromisoformat(event['created_at']).date()}")
 
-
+       
 if __name__ == "__main__":
     
     get_user_data("pokeuhdaht")
-    get_user_data(" ")
+    get_user_data("feff39f")
