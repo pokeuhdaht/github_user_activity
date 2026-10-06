@@ -1,11 +1,15 @@
 
 from github_activity import get_user_data
 
-print("\nTEST ONE\n-----------------------------\n")
+print("\n=======\nTEST ONE\n=======")
 get_user_data("pokeuhdaht")
-print("\nTEST TWO\n-----------------------------\n")
+print("\n=======\nTEST TWO\n=======")
 get_user_data(" ")
-print("\nTEST THREE\n-----------------------------\n")
+print("\n=======\nTEST THREE\n=======")
 get_user_data("btkrausen")
-print("\nTEST FOUR\n-----------------------------\n")
+print("\n=======\nTEST FOUR\n=======")
 get_user_data("AAAAAAAAAAAa")
+print("\n=======\nTEST FIVE\n=======")
+get_user_data("  k33h  ")
+print("\n=======\nTEST SIX\n=======")
+get_user_data("immeraufdemhund")
